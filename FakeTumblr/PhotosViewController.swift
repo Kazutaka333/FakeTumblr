@@ -17,8 +17,6 @@ class PhotosViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        tableView.rowHeight = 300
-    
         
         // Network request snippet
         let url = URL(string: "https://api.tumblr.com/v2/blog/humansofnewyork.tumblr.com/posts/photo?api_key=Q6vHoaVm5L1u2ZAW1fqv3Jw48gFzYVg9P0vH0VHl3GVy6quoGV")!
@@ -44,42 +42,43 @@ class PhotosViewController: UIViewController {
         task.resume()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let cell = sender as! PhotoCell
+        let vc = segue.destination as! PhotoDetailsViewController
+        let indexPath = tableView.indexPath(for: cell)!
+        vc.imageUrl = getImageUrl(indexPath: indexPath)
+    }
+    
+    func getImageUrl(indexPath : IndexPath) -> URL {
+        let post = posts[indexPath.row]
+        let photos = post["photos"] as! [[String: Any]]
+        // TODO: Get the photo url
+        let photo = photos[0]
+        // 2.
+        let originalSize = photo["original_size"] as! [String: Any]
+        // 3.
+        let urlString = originalSize["url"] as! String
+        // 4.
+        let url = URL(string: urlString)!
+        return url
     }
 }
 
-
 extension PhotosViewController : UITableViewDelegate {
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
-        let post = posts[indexPath.row]
-        if let photos = post["photos"] as? [[String: Any]] {
-            // TODO: Get the photo url
-            let photo = photos[0]
-            // 2.
-            let originalSize = photo["original_size"] as! [String: Any]
-            // 3.
-            let urlString = originalSize["url"] as! String
-            // 4.
-            let url = URL(string: urlString)!
-            cell.photoImageView!.af_setImage(withURL: url,
-                                            progressQueue: DispatchQueue.main)
-            { response in
-                let image: UIImage = response.result.value!
-                print("width: \(image.size.width)" )
-                print("height: \(image.size.height)" )
-            }
-            
-        }
-        return cell
-    }
-    
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 extension PhotosViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.posts.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
+        cell.photoImageView!.af_setImage(withURL: getImageUrl(indexPath: indexPath))
+        return cell
     }
 }
