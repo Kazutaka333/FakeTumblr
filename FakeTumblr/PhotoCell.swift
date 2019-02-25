@@ -15,8 +15,4 @@ class PhotoCell: UITableViewCell {
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var photoImageView: UIImageView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 }

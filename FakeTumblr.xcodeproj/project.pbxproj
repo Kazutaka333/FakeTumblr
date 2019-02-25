@@ -10,6 +10,7 @@
 		4159549E56B997DB2C2B51D9 /* Pods_FakeTumblrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31AF04BC0160BFA97394D232 /* Pods_FakeTumblrTests.framework */; };
 		63BD57970D6E489D10137633 /* Pods_FakeTumblrUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C0387A0DB800A812A00450 /* Pods_FakeTumblrUITests.framework */; };
 		D713E2882223997D007ACACE /* PhotoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D713E2872223997D007ACACE /* PhotoDetailsViewController.swift */; };
+		D713E28A2223AE1E007ACACE /* FullScreenPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D713E2892223AE1E007ACACE /* FullScreenPhotoViewController.swift */; };
 		D767F23B2217BA25007493B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F23A2217BA25007493B2 /* AppDelegate.swift */; };
 		D767F23D2217BA25007493B2 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D767F23C2217BA25007493B2 /* PhotosViewController.swift */; };
 		D767F2402217BA25007493B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D767F23E2217BA25007493B2 /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 		9DB1F218AB80C0BC34838123 /* Pods-FakeTumblrUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FakeTumblrUITests.debug.xcconfig"; path = "Target Support Files/Pods-FakeTumblrUITests/Pods-FakeTumblrUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C3B0C3959F1F85B21234EF85 /* Pods-FakeTumblrTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FakeTumblrTests.debug.xcconfig"; path = "Target Support Files/Pods-FakeTumblrTests/Pods-FakeTumblrTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D713E2872223997D007ACACE /* PhotoDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailsViewController.swift; sourceTree = "<group>"; };
+		D713E2892223AE1E007ACACE /* FullScreenPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenPhotoViewController.swift; sourceTree = "<group>"; };
 		D767F2372217BA25007493B2 /* FakeTumblr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FakeTumblr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D767F23A2217BA25007493B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D767F23C2217BA25007493B2 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				D767F23C2217BA25007493B2 /* PhotosViewController.swift */,
 				D767F23E2217BA25007493B2 /* Main.storyboard */,
 				D713E2872223997D007ACACE /* PhotoDetailsViewController.swift */,
+				D713E2892223AE1E007ACACE /* FullScreenPhotoViewController.swift */,
 				D767F2682217BB4D007493B2 /* PhotoCell.swift */,
 				D767F2412217BA31007493B2 /* Assets.xcassets */,
 				D767F2432217BA31007493B2 /* LaunchScreen.storyboard */,
@@ -403,6 +406,7 @@
 				D767F23D2217BA25007493B2 /* PhotosViewController.swift in Sources */,
 				D767F2692217BB4D007493B2 /* PhotoCell.swift in Sources */,
 				D767F23B2217BA25007493B2 /* AppDelegate.swift in Sources */,
+				D713E28A2223AE1E007ACACE /* FullScreenPhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
